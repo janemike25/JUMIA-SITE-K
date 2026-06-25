@@ -1,11 +1,59 @@
-<!-- Navigation Bar -->
-<nav>
-  <button class="nav-btn" onclick="showView('view-home')">Home</button>
-  <button class="nav-btn" onclick="showView('view-account')">Account</button>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumia Shop</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding-bottom: 60px; }
+        .hidden { display: none !important; }
+        
+        header { background: #f8b11e; padding: 20px; color: white; text-align: center; font-weight: bold; }
+        main { padding: 20px; }
+        
+        nav { 
+            position: fixed; bottom: 0; width: 100%; 
+            display: flex; background: #fff; border-top: 1px solid #ccc; 
+        }
+        .nav-btn { 
+            flex: 1; padding: 15px; border: none; background: none; 
+            cursor: pointer; text-align: center; 
+        }
+        .nav-btn:active { background: #f0f0f0; }
+    </style>
+</head>
+<body>
 
-<!-- Content Areas -->
-<main>
-  <div id="view-home">...</div>
-  <div id="view-account" class="hidden">...</div>
-</main>
+    <header>Jumia Shop</header>
+
+    <main>
+        <div id="view-home">
+            <h2>Welcome to Jumia</h2>
+            <p>Your shop is now live!</p>
+        </div>
+
+        <div id="view-account" class="hidden">
+            <h2>Account</h2>
+            <p>Please log in to continue.</p>
+            <button onclick="alert('Login functionality goes here!')">Login</button>
+        </div>
+    </main>
+
+    <nav>
+        <button class="nav-btn" onclick="showView('view-home')">🏠 Home</button>
+        <button class="nav-btn" onclick="showView('view-account')">👤 Account</button>
+    </nav>
+
+    <script>
+        function showView(viewId) {
+            // Hide all main content divs
+            document.querySelectorAll('main > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+            
+            // Show the target div
+            document.getElementById(viewId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

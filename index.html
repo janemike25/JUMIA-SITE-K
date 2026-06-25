@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jumia Shop</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        body { font-family: sans-serif; margin: 0; padding-bottom: 60px; }
+        .hidden { display: none !important; }
+        header { background: #f68b1e; padding: 20px; color: white; text-align: center; }
+        main { padding: 20px; }
+        nav { position: fixed; bottom: 0; width: 100%; display: flex; background: #fff; border-top: 1px solid #ccc; }
+        .nav-btn { flex: 1; padding: 15px; border: none; background: #fff; cursor: pointer; }
+        input { width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #f68b1e; color: white; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>Welcome to Jumia Shop</h1>
-    <p>Your website is now live!</p>
+    <header>Jumia Shop</header>
+    <main>
+        <div id="view-home">
+            <h2>Welcome to Jumia</h2>
+            <p>Your shop is now live!</p>
+        </div>
+        
+        <div id="view-account" class="hidden">
+            <h2>Account</h2>
+            <button onclick="showView('login')">Login</button>
+        </div>
+
+        <div id="view-login" class="hidden">
+            <h2>Login</h2>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Submit</button>
+            <p onclick="showView('forgot')" style="color: blue; cursor: pointer;">Forgot Password?</p>
+        </div>
+
+        <div id="view-forgot" class="hidden">
+            <h2>Reset Password</h2>
+            <p>Enter your email to receive a reset link.</p>
+            <input type="email" placeholder="Email">
+            <button>Send Reset Link</button>
+            <p onclick="showView('login')" style="color: blue; cursor: pointer;">Back to Login</p>
+        </div>
+    </main>
+    <nav>
+        <button class="nav-btn" onclick="showView('home')">🏠 Home</button>
+        <button class="nav-btn" onclick="showView('account')">👤 Account</button>
+    </nav>
+    <script>
+        function showView(viewName) {
+            const views = ['home', 'account', 'login', 'forgot'];
+            views.forEach(view => {
+                document.getElementById('view-' + view).classList.add('hidden');
+            });
+            document.getElementById('view-' + viewName).classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>

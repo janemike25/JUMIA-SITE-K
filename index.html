@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jumia Shop</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding-bottom: 60px; }
+        body { font-family: sans-serif; margin: 0; padding-bottom: 70px; }
         .hidden { display: none !important; }
         
         header { background: #f8b11e; padding: 20px; color: white; text-align: center; font-weight: bold; }
@@ -16,10 +16,9 @@
             display: flex; background: #fff; border-top: 1px solid #ccc; 
         }
         .nav-btn { 
-            flex: 1; padding: 15px; border: none; background: none; 
-            cursor: pointer; text-align: center; 
+            flex: 1; padding: 15px; border: none; background: #fff; 
+            cursor: pointer; text-align: center; font-size: 16px;
         }
-        .nav-btn:active { background: #f0f0f0; }
     </style>
 </head>
 <body>
@@ -34,8 +33,7 @@
 
         <div id="view-account" class="hidden">
             <h2>Account</h2>
-            <p>Please log in to continue.</p>
-            <button onclick="alert('Login functionality goes here!')">Login</button>
+            <p>This is your account page.</p>
         </div>
     </main>
 
@@ -46,12 +44,11 @@
 
     <script>
         function showView(viewId) {
-            // Hide all main content divs
-            document.querySelectorAll('main > div').forEach(div => {
-                div.classList.add('hidden');
-            });
+            // Hide all content divs
+            document.getElementById('view-home').classList.add('hidden');
+            document.getElementById('view-account').classList.add('hidden');
             
-            // Show the target div
+            // Show the selected view
             document.getElementById(viewId).classList.remove('hidden');
         }
     </script>
